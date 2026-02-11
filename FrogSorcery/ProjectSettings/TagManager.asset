@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - wall
+  - walkable
+  - cover
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - walkable
+  - Water
+  - UI
+  - player
+  - cover
+  - wall
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: walkable
+    uniqueID: 758272765
+    locked: 0
+  - name: player
+    uniqueID: 3572749685
+    locked: 0
+  - name: cover
+    uniqueID: 3142475727
+    locked: 0
+  - name: wall
+    uniqueID: 1785771269
+    locked: 0
+  m_RenderingLayers:
+  - Default
