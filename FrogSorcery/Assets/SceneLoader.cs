@@ -7,6 +7,9 @@ public class SceneLoader : MonoBehaviour
 
     private bool isPaused = false;
 
+    [SerializeField] private GameObject MainMenu;
+    [SerializeField] private GameObject OptionsMenu;
+
     private void Awake()
     {
         if (Instance == null)
@@ -60,5 +63,17 @@ public class SceneLoader : MonoBehaviour
         #else
         Application.Quit();
         #endif
+    }
+
+    public void LoadMainMenu()
+    {
+        MainMenu.SetActive(true);
+        OptionsMenu.SetActive(false);
+    }
+
+    public void LoadOptionsMenu()
+    {
+        OptionsMenu.SetActive(true);
+        MainMenu.SetActive(false);
     }
 }
