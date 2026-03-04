@@ -427,8 +427,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1252164964}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &744779337
@@ -443,7 +442,7 @@ GameObject:
   - component: {fileID: 744779340}
   - component: {fileID: 744779339}
   m_Layer: 7
-  m_Name: Tilemap
+  m_Name: covermap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -462,7 +461,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1576272597}
+  m_Father: {fileID: 1810070051}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &744779339
 TilemapRenderer:
@@ -839,7 +838,7 @@ GameObject:
   - component: {fileID: 1252164966}
   - component: {fileID: 1252164965}
   m_Layer: 3
-  m_Name: Tilemap
+  m_Name: walkmap
   m_TagString: walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -854,11 +853,11 @@ Transform:
   m_GameObject: {fileID: 1252164963}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 423934315}
+  m_Father: {fileID: 1810070051}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1252164965
 TilemapRenderer:
@@ -1341,7 +1340,7 @@ GameObject:
   - component: {fileID: 1569863002}
   - component: {fileID: 1569863004}
   m_Layer: 8
-  m_Name: Tilemap
+  m_Name: wallmap
   m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2189,8 +2188,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 744779338}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1810070049
@@ -2236,6 +2234,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1569863001}
+  - {fileID: 1252164964}
+  - {fileID: 744779338}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
