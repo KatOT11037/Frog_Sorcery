@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private InputAction ribbit;
     private InputAction move;
     private InputAction cast;
+    private BulletBang bangPrefab;
 
     void Awake()
     {
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         ribbit = playerInput.actions["Ribbit"];
         move = playerInput.actions["Move"];
         cast = playerInput.actions["Cast"];
+        bangPrefab = Resources.Load<BulletBang>("Bang");
     }
 
     private void OnEnable()
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void MovePlayer(Vector2 direction)
+    private void MovePlayer(Vector3 direction)
     {
         if(!isTurn){
             Debug.Log("Not Player Turn");
@@ -71,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            Spell((Vector2)direction);
+            Spell((Vector3)direction);
             rend.material.color = Color.white;
             isCasting = false;
             TurnOver();
@@ -93,12 +95,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Spell(Vector2 direction)
+    void Spell(Vector3 direction)
     {
         Debug.Log("Spell cast "+direction);
+
+        if (bangPrefab != null)
+        {
+
+            BulletBang bangproj = Instantiate(bangPrefab, transform.position, Quaternion.identity);
+            bangproj.direction = new Vector3(direction.x, direction.y, direction.z);
+            Debug.Log("Bang spawned");
+        }
+        else
+        {
+            Debug.LogWarning("No bang. where is bang");
+        }
     }
     
-    private bool CanMove(Vector2 direction)
+    bool CanMove(Vector2 direction)
     {
         Vector3Int gridPosition = walkmap.WorldToCell(transform.position + (Vector3)direction);
         if(!(walkmap.HasTile(gridPosition)||covermap.HasTile(gridPosition)))
@@ -117,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
             }
     }
 
-    private void TurnOver()
+    void TurnOver()
     {
         isTurn = false;
         GameManager.Instance.TurnEnd();

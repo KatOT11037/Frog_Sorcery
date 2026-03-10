@@ -245,6 +245,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 48aac8f2-c928-4471-adea-3f2b3d4474f6
     m_ActionName: 'Main/Move[/Keyboard/upArrow,/Keyboard/w,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1c615492-bb18-45c5-be35-9c0e4fdae8a2
+    m_ActionName: 'Main/Cast[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Main
@@ -265,8 +269,6 @@ MonoBehaviour:
   walkmap: {fileID: 1252164966}
   covermap: {fileID: 744779340}
   collmap: {fileID: 1569863003}
-  moveDuration: 0.1
-  gridSize: 1
 --- !u!1 &744779337
 GameObject:
   m_ObjectHideFlags: 0
