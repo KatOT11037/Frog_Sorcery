@@ -6,6 +6,7 @@ public class BulletBang : MonoBehaviour
     public Vector3 direction; 
     private bool myTurn;
     private int lastTurnMoved;
+    [SerializeField] int bangDamage;
     //private Tilemap[] tilemaps;
 
     void Start()
@@ -14,7 +15,7 @@ public class BulletBang : MonoBehaviour
         GameManager.Instance.bulletAmount++;
         //Made a weird way of each instance referencing the tilemaps, for collision, 
         //and because just porting over the player CanMove bool seemed simple and it needs them, 
-        //before realizing that i could probably just use a collider and Tilemap collider and it would perform better
+        //before realizing that i could probably just use a collider and it would perform better
 
         //tilemaps = FindObjectsByType<Tilemap>(FindObjectsSortMode.InstanceID);
         //covermap = tilemaps[0];
@@ -51,6 +52,11 @@ public class BulletBang : MonoBehaviour
         {
             Debug.Log("THUD");
             Destroy(gameObject);
+        }
+        if(other.gameObject.tag == "enemy")
+        {
+            Debug.Log("Hit "+other.gameObject.name);
+            GetComponent<IndividualEnemy>().Damage(bangDamage);
         }
     }
 

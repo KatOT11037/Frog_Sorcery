@@ -8,6 +8,7 @@ TagManager:
   - walkable
   - cover
   - FBullet
+  - enemy
   layers:
   - Default
   - TransparentFX
