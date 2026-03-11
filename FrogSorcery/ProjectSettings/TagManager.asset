@@ -16,9 +16,9 @@ TagManager:
   - Water
   - UI
   - player
-  - cover
   - wall
-  - 
+  - overwall
+  - cover
   - 
   - 
   - 
@@ -48,14 +48,14 @@ TagManager:
   - name: walkable
     uniqueID: 758272765
     locked: 0
+  - name: wall
+    uniqueID: 1785771269
+    locked: 0
   - name: player
     uniqueID: 3572749685
     locked: 0
   - name: cover
     uniqueID: 3142475727
-    locked: 0
-  - name: wall
-    uniqueID: 1785771269
     locked: 0
   m_RenderingLayers:
   - Default

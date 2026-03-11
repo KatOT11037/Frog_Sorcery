@@ -4,8 +4,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     private PlayerMovement playerMovement;
+    public bool magicTurn = false;
+    public bool enemyTurn = false;
+    public int turnCount = 0;
+    public int enemyAmount = 0;
+    public int enemyInit = 0;
     public int bulletAmount = 0;
-    public int bulletTurn = 0;
+    public int bulletInit = 0;
     void Awake()
     {
         if(Instance == null)
@@ -24,22 +29,35 @@ public class GameManager : MonoBehaviour
     public void TurnEnd()
     {
         EnemyTurn();
-        MagicTurn();
-        playerMovement.PlayerTurn();
+    }
+
+    void Update() 
+    {
+        if(enemyTurn && enemyAmount == enemyInit)
+        {
+            enemyTurn = false;
+            MagicTurn();
+        }
+
+        if(magicTurn && bulletAmount == bulletInit)
+        {
+            magicTurn = false;
+            turnCount++;
+            playerMovement.PlayerTurn();
+        }
     }
 
     public void EnemyTurn()
     {
         Debug.Log("Enemy Turn");
+        enemyInit = 0;
+        enemyTurn = true;
     }
 
     public void MagicTurn()
     {
         Debug.Log("Magic Turn");
-        bulletTurn = 0;
-        while(bulletTurn != bulletAmount)
-        {
-            
-        }
+        bulletInit = 0;
+        magicTurn = true;
     }
 }

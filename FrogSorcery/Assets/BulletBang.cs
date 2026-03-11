@@ -3,18 +3,15 @@ using UnityEngine.Tilemaps;
 
 public class BulletBang : MonoBehaviour
 {
-    public Vector3 direction;
-    private Tilemap walkmap;
-    private Tilemap covermap;
-    private Tilemap collmap;
+    public Vector3 direction; 
+    private bool myTurn;
+    private int lastTurnMoved;
     //private Tilemap[] tilemaps;
-    public int myTurn; 
 
     void Start()
     {   
         Debug.Log("Prefab Spawned "+ direction);
         GameManager.Instance.bulletAmount++;
-        myTurn = GameManager.Instance.bulletAmount;
         //Made a weird way of each instance referencing the tilemaps, for collision, 
         //and because just porting over the player CanMove bool seemed simple and it needs them, 
         //before realizing that i could probably just use a collider and Tilemap collider and it would perform better
@@ -30,30 +27,43 @@ public class BulletBang : MonoBehaviour
 
     void Update()
     {
-        
+        if(GameManager.Instance.magicTurn && lastTurnMoved!=GameManager.Instance.turnCount){
+            myTurn = true;
+        }
+
+        if(myTurn){
+            Debug.Log("Moving");
+            transform.position += direction;
+            TurnOver();
+        }
+    }
+    
+    void TurnOver()
+    {
+        lastTurnMoved = GameManager.Instance.turnCount;
+        myTurn = false;
+        GameManager.Instance.bulletInit++;
     }
 
-    bool CanMove(Vector2 direction)
-    {
-        Vector3Int gridPosition = walkmap.WorldToCell(transform.position + (Vector3)direction);
-        if(!(walkmap.HasTile(gridPosition)||covermap.HasTile(gridPosition)))
+    void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("Collision. Collider tag is "+other.gameObject.tag);
+        if(other.gameObject.tag == "wall")
         {
-            Debug.Log("No Walkable Tile");
-            return false;
-        }else if(collmap.HasTile(gridPosition))
-            {
-            Debug.Log("Wall in the way, boss");
-            return false;
-            }
-        else
-            {
-            Debug.Log("Can Move");
-            return true;
-            }
+            Debug.Log("THUD");
+            Destroy(gameObject);
+        }
     }
 
     void OnDestroy()
     {
         GameManager.Instance.bulletAmount--;
+        if(lastTurnMoved==GameManager.Instance.turnCount)
+        {
+            GameManager.Instance.bulletInit--;
+        }
+        Debug.Log(GameManager.Instance.bulletAmount);
+        Debug.Log(GameManager.Instance.bulletInit);
     }
+
+
 }
