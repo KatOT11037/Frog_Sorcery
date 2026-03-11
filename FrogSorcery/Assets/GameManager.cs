@@ -4,7 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     private PlayerMovement playerMovement;
-    public array 
+    public int bulletAmount = 0;
+    public int bulletTurn = 0;
     void Awake()
     {
         if(Instance == null)
@@ -35,5 +36,10 @@ public class GameManager : MonoBehaviour
     public void MagicTurn()
     {
         Debug.Log("Magic Turn");
+        bulletTurn = 0;
+        while(bulletTurn != bulletAmount)
+        {
+            
+        }
     }
 }
