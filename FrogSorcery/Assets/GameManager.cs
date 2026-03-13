@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     private PlayerMovement playerMovement;
+    public bool spellComplete = true;
     public bool magicTurn = false;
     public bool enemyTurn = false;
     public int turnCount = 0;
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            spellComplete = true;
         }
         else
         {
@@ -39,7 +41,7 @@ public class GameManager : MonoBehaviour
             MagicTurn();
         }
 
-        if(magicTurn && bulletAmount == bulletInit)
+        if(magicTurn && bulletAmount == bulletInit && spellComplete)
         {
             magicTurn = false;
             turnCount++;

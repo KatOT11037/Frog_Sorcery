@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     private InputAction move;
     private InputAction cast;
     private BulletBang bangPrefab;
-
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -58,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!isTurn){
             Debug.Log("Not Player Turn");
+            Debug.Log(GameManager.Instance.enemyAmount);
+            Debug.Log(GameManager.Instance.enemyInit);
             return;}
             else{
         if(!isCasting)
@@ -73,7 +75,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            Spell((Vector3)direction);
+            GameManager.Instance.spellComplete = false;
+            StartCoroutine(Spell((Vector3)direction));
             rend.material.color = Color.white;
             isCasting = false;
             TurnOver();
@@ -85,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!isTurn){
             Debug.Log("Not Player Turn");
+            Debug.Log(GameManager.Instance.spellComplete);
             return;}
             else{
         if (!isMoving)
@@ -95,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Spell(Vector3 direction)
+    private IEnumerator Spell(Vector3 direction)
     {
         Debug.Log("Spell cast "+direction);
 
@@ -110,6 +114,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogWarning("No bang. where is bang");
         }
+//        if(GameManager.Instance.spellComplete){yield break;}
+        yield break;
     }
     
     bool CanMove(Vector2 direction)

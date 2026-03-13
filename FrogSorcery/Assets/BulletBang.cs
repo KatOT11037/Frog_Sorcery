@@ -13,6 +13,7 @@ public class BulletBang : MonoBehaviour
     {   
         Debug.Log("Prefab Spawned "+ direction);
         GameManager.Instance.bulletAmount++;
+        GameManager.Instance.spellComplete = true;
         //Made a weird way of each instance referencing the tilemaps, for collision, 
         //and because just porting over the player CanMove bool seemed simple and it needs them, 
         //before realizing that i could probably just use a collider and it would perform better
@@ -56,7 +57,8 @@ public class BulletBang : MonoBehaviour
         if(other.gameObject.tag == "enemy")
         {
             Debug.Log("Hit "+other.gameObject.name);
-            GetComponent<IndividualEnemy>().Damage(bangDamage);
+            other.GetComponent<IndividualEnemy>().Damage(bangDamage);
+            Destroy(gameObject);
         }
     }
 
