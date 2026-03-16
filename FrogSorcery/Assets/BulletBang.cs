@@ -5,8 +5,9 @@ public class BulletBang : MonoBehaviour
 {
     public Vector3 direction; 
     private bool myTurn;
-    private int lastTurnMoved;
+    private int lastTurnMoved =-1;
     [SerializeField] int bangDamage;
+    private bool meComplete = false;
     //private Tilemap[] tilemaps;
 
     void Start()
@@ -14,6 +15,7 @@ public class BulletBang : MonoBehaviour
         Debug.Log("Prefab Spawned "+ direction);
         GameManager.Instance.bulletAmount++;
         GameManager.Instance.spellComplete = true;
+        meComplete = true;
         //Made a weird way of each instance referencing the tilemaps, for collision, 
         //and because just porting over the player CanMove bool seemed simple and it needs them, 
         //before realizing that i could probably just use a collider and it would perform better
@@ -48,6 +50,7 @@ public class BulletBang : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
+        if(meComplete){
         Debug.Log("Collision. Collider tag is "+other.gameObject.tag);
         if(other.gameObject.tag == "wall")
         {
@@ -60,6 +63,7 @@ public class BulletBang : MonoBehaviour
             other.GetComponent<IndividualEnemy>().Damage(bangDamage);
             Destroy(gameObject);
         }
+        }else{Debug.Log("Spell Collided before fully formed.");}
     }
 
     void OnDestroy()

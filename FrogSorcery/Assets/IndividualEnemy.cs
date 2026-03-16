@@ -49,7 +49,7 @@ public class IndividualEnemy : MonoBehaviour
 //        StartCoroutine(ColourRed(0.8f));
         rend.color =Color.red;
         rend.DOColor(Color.white, 0.5f);
-        if(enemyHealth <= 0) StartCoroutine(Die());
+        if(enemyHealth <= 0){StartCoroutine(Die());}
     }
 
 /*    private IEnumerator ColourRed(float duration)
@@ -124,6 +124,7 @@ public class IndividualEnemy : MonoBehaviour
         if(!dead){
         dead = true;
         GameManager.Instance.enemyAmount--;
+        if (lastTurnMoved == GameManager.Instance.turnCount){GameManager.Instance.enemyInit--;}
         rend.color = Color.red;
         rend.DOFade(0f, 2f);
         yield return new WaitForSeconds(2f);

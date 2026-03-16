@@ -58,8 +58,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!isTurn){
             Debug.Log("Not Player Turn");
-            Debug.Log(GameManager.Instance.enemyAmount);
-            Debug.Log(GameManager.Instance.enemyInit);
+            Debug.Log("Enemy Amount "+GameManager.Instance.enemyAmount);
+            Debug.Log("Enemy Init "+GameManager.Instance.enemyInit);
+            Debug.Log("Bullet Amount "+GameManager.Instance.bulletAmount);
+            Debug.Log("Bullet Init "+GameManager.Instance.bulletInit);
+            Debug.Log("spellComplete "+GameManager.Instance.spellComplete);
             return;}
             else{
         if(!isCasting)
