@@ -21,13 +21,13 @@ public class IndividualEnemy : MonoBehaviour
 
     void Awake(){
         DOTween.Init();
-        GameManager.Instance.enemyAmount++;
         enemyHealth = 3;
         awoken = false;
         dead = false;
         lastTurnMoved = -1;
         rend = GetComponent<SpriteRenderer>();
         rend.color = Color.white;
+        //GameManager.Instance.enemyAmount++;
         GetSteps(false);
     }
 
@@ -121,11 +121,13 @@ public class IndividualEnemy : MonoBehaviour
     }
     private IEnumerator Die()
     {
+        if(!dead){
         dead = true;
         GameManager.Instance.enemyAmount--;
         rend.color = Color.red;
         rend.DOFade(0f, 2f);
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
+        }
     }
 }
