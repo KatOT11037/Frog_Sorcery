@@ -10,9 +10,13 @@ public class IndividualEnemy : MonoBehaviour
     [SerializeField] int pDown;
     private int stepsRemaining;
     [SerializeField] int currentNESW = 1;
+    [SerializeField] int moveType;
     public int enemyHealth;
     public bool awoken;
+    public float distanceX;
+    public float distanceY;
     private SpriteRenderer rend;
+    private Transform player;
     private bool myTurn;
     private int lastTurnMoved;
     private Transform trans;
@@ -26,9 +30,18 @@ public class IndividualEnemy : MonoBehaviour
         dead = false;
         lastTurnMoved = -1;
         rend = GetComponent<SpriteRenderer>();
+        PlayerHealth playerHealth = FindFirstObjectByType<PlayerHealth>();
+        if(playerHealth != null){
+        trans = GetComponent<Transform>();
+        player = playerHealth.transform;
+        Debug.Log(player.position);}
         rend.color = Color.white;
-        //GameManager.Instance.enemyAmount++;
         GetSteps(false);
+    }
+
+    void Start()
+    {
+        GameManager.Instance.enemyAmount++;
     }
 
     void Update()
@@ -39,7 +52,20 @@ public class IndividualEnemy : MonoBehaviour
         }
         if (myTurn)
         {
-            Move(currentNESW);
+            switch (moveType){
+                case 0:
+                MovePatrol(currentNESW);
+                break;
+
+                case 1:
+                MoveToPlayer();
+                break;
+
+                case >1:
+                Debug.Log("Invalid Move Type");
+                endTurn();
+                break;
+            }
         }
     }
 
@@ -59,7 +85,7 @@ public class IndividualEnemy : MonoBehaviour
         rend.color =Color.white;
     }
 */
-    void Move(int direction)
+    void MovePatrol(int direction)
     {
         if(stepsRemaining!=0){
             if (direction == 1)
@@ -111,8 +137,22 @@ public class IndividualEnemy : MonoBehaviour
                     break;
                 }
             if(move){
-            Move(currentNESW);}
+            MovePatrol(currentNESW);}
     }
+
+    void MoveToPlayer()
+    {
+        Debug.Log(player.position.x);;
+        if((trans.position.x)>(player.position.x)){
+            Debug.Log("Enemy left of Player");
+            distanceX = trans.position.x-player.position.x;
+        }
+        distanceX = trans.position.x-player.position.x;
+        Debug.Log(distanceX);
+        endTurn();
+    }
+    
+
     void endTurn()
     {
         myTurn =false;
