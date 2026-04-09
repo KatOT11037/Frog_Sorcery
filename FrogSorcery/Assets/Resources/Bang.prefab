@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   bangDamage: 1
+  pitch: -1
 --- !u!212 &-4984792508674821087
 SpriteRenderer:
   m_ObjectHideFlags: 0

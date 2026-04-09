@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class BulletBang : MonoBehaviour
+public class KnightBubble : MonoBehaviour
 {
     public Vector3 direction; 
     private bool myTurn;
@@ -44,7 +44,7 @@ public class BulletBang : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                
             }
             TurnOver();
         }

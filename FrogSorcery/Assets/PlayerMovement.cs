@@ -12,11 +12,13 @@ public class PlayerMovement : MonoBehaviour
     private Renderer rend;
     private bool isMoving = false;
     private bool isCasting = false;
+    private bool isAiming = false;
     private bool isTurn = false;
     private InputAction ribbit;
     private InputAction move;
     private InputAction cast;
     private BulletBang bangPrefab;
+    private KnightBubble knightproj;
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -25,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         move = playerInput.actions["Move"];
         cast = playerInput.actions["Cast"];
         bangPrefab = Resources.Load<BulletBang>("Bang");
+        knightproj = Resources.Load<KnightBubble>("KnightBubble");
     }
 
     private void OnEnable()
@@ -78,13 +81,36 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.spellComplete = false;
-            StartCoroutine(Spell((Vector3)direction));
-            rend.material.color = Color.white;
-            isCasting = false;
-            TurnOver();
+            Debug.Log((Vector3)direction);
+            switch (direction.x){
+                    case 1:
+                    TurnOver();
+                    break;
+
+                    case -1:
+                    TurnOver();
+                    break;
+            }
+            switch (direction.y){
+                    case 1:
+                    GameManager.Instance.spellComplete = false;
+                    AimKnight();
+                    rend.material.color = Color.green;
+                    isAiming = true;
+                    isCasting = false;
+                    break;
+
+                    case -1:
+                    TurnOver();
+                    break;
+                }
         }
     }
+    }
+
+    private void AimKnight()
+    {
+        //StartCoroutine(SpellKnight((Vector3)direction));
     }
 
     private void Cast(InputAction.CallbackContext ctx)
@@ -102,15 +128,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private IEnumerator Spell(Vector3 direction)
+    private IEnumerator SpellKnight(Vector3 direction)
     {
         Debug.Log("Spell cast "+direction);
 
         if (bangPrefab != null)
         {
 
-            BulletBang bangproj = Instantiate(bangPrefab, transform.position, Quaternion.identity);
-            bangproj.direction = new Vector3(direction.x, direction.y, direction.z);
+            KnightBubble knight = Instantiate(knightproj, transform.position, Quaternion.identity);
+            knight.direction = new Vector3(direction.x, direction.y, direction.z);
             Debug.Log("Bang spawned");
         }
         else

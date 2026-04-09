@@ -142,9 +142,13 @@ public class IndividualEnemy : MonoBehaviour
 
     void MoveToPlayer()
     {
-        Debug.Log(player.position.x);;
+        Debug.Log(player.position.x);
         if((trans.position.x)>(player.position.x)){
             Debug.Log("Enemy left of Player");
+            distanceX = trans.position.x-player.position.x;
+        }
+        if((trans.position.x)<(player.position.x)){
+            Debug.Log("Enemy right of Player");
             distanceX = trans.position.x-player.position.x;
         }
         distanceX = trans.position.x-player.position.x;
