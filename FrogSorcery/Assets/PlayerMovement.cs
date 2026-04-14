@@ -19,8 +19,10 @@ public class PlayerMovement : MonoBehaviour
     private InputAction cast;
     private BulletBang bangPrefab;
     private KnightBubble knightproj;
+    public GameObject knightindicator;
     void Awake()
     {
+        knightindicator = gameObject.transform.GetChild(0).gameObject;
         playerInput = GetComponent<PlayerInput>();
         rend = GetComponent<SpriteRenderer>();
         ribbit = playerInput.actions["Ribbit"];
@@ -51,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Not Player Turn");
             return;}
             else{
-
+//            gameObject.knightindicator.knightAim.Switch();
             Debug.Log("Ribbited");
             TurnOver();
         }
