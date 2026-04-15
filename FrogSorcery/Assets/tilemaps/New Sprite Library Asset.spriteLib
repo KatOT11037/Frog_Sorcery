@@ -13,52 +13,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library:
-  - m_Name: knightindicatorsheet
-    m_Hash: 303312951
+  - m_Name: main
+    m_Hash: 1059638628
     m_CategoryList: []
     m_OverrideEntries:
-    - m_Name: knightindicatorsheet_0
-      m_Hash: 754803012
+    - m_Name: 0
+      m_Hash: 886824737
       m_Sprite: {fileID: 7545511995833076305, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 7545511995833076305, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
-    - m_Name: knightindicatorsheet_1
-      m_Hash: 469389778
+    - m_Name: 1
+      m_Hash: 64810935
       m_Sprite: {fileID: 6464943472280671266, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 6464943472280671266, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
-    - m_Name: knightindicatorsheet_2
-      m_Hash: 49479784
+    - m_Name: 2
+      m_Hash: 450215437
       m_Sprite: {fileID: 879650514281107113, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 879650514281107113, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
-    - m_Name: knightindicatorsheet_3
-      m_Hash: 905195774
+    - m_Name: 3
+      m_Hash: 768773787
       m_Sprite: {fileID: 1550845161834704840, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 1550845161834704840, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
-    - m_Name: knightindicatorsheet_4
-      m_Hash: 730899805
+    - m_Name: 4
+      m_Hash: 867572536
       m_Sprite: {fileID: -1792316462094147119, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: -1792316462094147119, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
-    - m_Name: knightindicatorsheet_5
-      m_Hash: 479696331
+    - m_Name: 5
+      m_Hash: 78719918
       m_Sprite: {fileID: 7973432452564839741, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 7973432452564839741, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
-    - m_Name: knightindicatorsheet_6
-      m_Hash: 94291057
+    - m_Name: 6
+      m_Hash: 498629140
       m_Sprite: {fileID: 3977593333492036616, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 3977593333492036616, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
-    - m_Name: knightindicatorsheet_7
-      m_Hash: 848950503
+    - m_Name: 7
+      m_Hash: 717179522
       m_Sprite: {fileID: 6445879074701419977, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 6445879074701419977, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 8
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 639117645281077687
+  m_ModificationHash: 639118126272904172
   m_Version: 1

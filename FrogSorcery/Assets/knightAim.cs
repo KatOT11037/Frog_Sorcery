@@ -1,24 +1,105 @@
 using UnityEngine;
-using UnityEngine.U2D.Animation;
+using UnityEngine.InputSystem;
 
-public class knightAim : MonoBehaviour
+public class KnightAim : MonoBehaviour
 {
     public bool isEnabled = false;
+    private SpriteRenderer aimrenderer;
+    private Vector3 mousePos;
+    private InputAction click;
+    public int aimX;
+    public int aimY;
+    public int aimPiv;
+    private Vector3Int aimDirection;
+    public int castDirection;
+    [SerializeField] public Sprite[] sprites;
     void Awake()
     {
-        Renderer renderer = GetComponent<SpriteRenderer>();
-        SpriteLibrary lib = GetComponent<SpriteLibrary>();
-        SpriteResolver resolver = GetComponent<SpriteResolver>();
+        castDirection = -1;
+//        aimrenderer = GetComponent<SpriteRenderer>();
+//        click = playerInput.actions["Click"];
     }
-    void OnEnable() {
-        
+
+    private void OnEnable()
+    {
+        click.started += Click;
+    }
+    private void OnDisable()
+    {
+        click.started -= Click;
     }
     void Update()
     {
-        
+        mousePos = Input.mousePosition;
+        if (mousePos.x < (Screen.width/2))
+        {
+            aimX = -1;
+        }
+        else
+        {
+            aimX = 1;
+        }
+        if (mousePos.y < (Screen.height/2))
+        {
+            aimY = -1;
+        }
+        else
+        {
+            aimY = 1;
+        }
+
+        if(Mathf.Abs(mousePos.x - (Screen.width/2)) > Mathf.Abs(mousePos.y - (Screen.height/2)))
+        {
+            aimPiv = 1;
+        }
+        else
+        {
+            aimPiv = -1;
+        }
+
+        aimDirection = new Vector3Int(aimX, aimY, aimPiv);
+        Debug.Log(aimDirection.ToString());
+
+        switch (aimDirection.ToString()){
+            case "(1, 1, -1)":
+            castDirection = 0;
+            break;
+
+            case "(1, 1, 1)":
+            castDirection = 1;
+            break;
+
+            case "(1, -1, -1)":
+            castDirection = 2;
+            break;
+
+            case "(1, -1, 1)":
+            castDirection = 3;
+            break;
+
+            case "(-1, -1, -1)":
+            castDirection = 4;
+            break;
+
+            case "(-1, -1, 1)":
+            castDirection = 5;
+            break;
+
+            case "(-1, 1, -1)":
+            castDirection = 6;
+            break;
+
+            case "(-1, 1, 1)":
+            castDirection = 7;
+            break;
+        }
+
+        aimrenderer.sprite = sprites[castDirection];
     }
 
-    public void Switch(){
-        Debug.Log("Swutch");
+    private void Click(InputAction.CallbackContext ctx)        
+    {
+//        AimKnight(castDirection);
+        gameObject.SetActive(false);
     }
 }

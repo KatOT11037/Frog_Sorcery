@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Tilemap walkmap;
     [SerializeField] private Tilemap covermap;
     [SerializeField] private Tilemap collmap;
-    private PlayerInput playerInput;
+    public PlayerInput playerInput;
+    public KnightAim knightAim;
     private Renderer rend;
     private bool isMoving = false;
     private bool isCasting = false;
@@ -23,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         knightindicator = gameObject.transform.GetChild(0).gameObject;
+        knightAim = knightindicator.GetComponent<KnightAim>();
+        Debug.Log(knightindicator.activeInHierarchy);
         playerInput = GetComponent<PlayerInput>();
         rend = GetComponent<SpriteRenderer>();
         ribbit = playerInput.actions["Ribbit"];
@@ -53,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Not Player Turn");
             return;}
             else{
-//            gameObject.knightindicator.knightAim.Switch();
             Debug.Log("Ribbited");
             TurnOver();
         }
@@ -96,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
             switch (direction.y){
                     case 1:
                     GameManager.Instance.spellComplete = false;
-                    AimKnight();
+                    knightindicator.SetActive(true);
                     rend.material.color = Color.green;
                     isAiming = true;
                     isCasting = false;
@@ -110,9 +112,9 @@ public class PlayerMovement : MonoBehaviour
     }
     }
 
-    private void AimKnight()
+    private void AimKnight(int direction)
     {
-        //StartCoroutine(SpellKnight((Vector3)direction));
+        StartCoroutine(SpellKnight(direction));
     }
 
     private void Cast(InputAction.CallbackContext ctx)
@@ -130,15 +132,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private IEnumerator SpellKnight(Vector3 direction)
+    private IEnumerator SpellKnight(int direction)
     {
         Debug.Log("Spell cast "+direction);
 
         if (bangPrefab != null)
         {
 
-            KnightBubble knight = Instantiate(knightproj, transform.position, Quaternion.identity);
-            knight.direction = new Vector3(direction.x, direction.y, direction.z);
+//            KnightBubble knight = Instantiate(knightproj, transform.position, Quaternion.identity);
+//            knight.direction = new Vector3(direction.x, direction.y, direction.z);
             Debug.Log("Bang spawned");
         }
         else

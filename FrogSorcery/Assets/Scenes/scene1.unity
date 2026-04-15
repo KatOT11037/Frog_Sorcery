@@ -271,6 +271,8 @@ MonoBehaviour:
   walkmap: {fileID: 1252164966}
   covermap: {fileID: 744779340}
   collmap: {fileID: 1569863003}
+  playerInput: {fileID: 0}
+  knightAim: {fileID: 0}
   knightindicator: {fileID: 0}
 --- !u!114 &214587491
 MonoBehaviour:
@@ -296,8 +298,6 @@ GameObject:
   m_Component:
   - component: {fileID: 693637417}
   - component: {fileID: 693637421}
-  - component: {fileID: 693637420}
-  - component: {fileID: 693637419}
   - component: {fileID: 693637418}
   m_Layer: 5
   m_Name: knightindicator
@@ -334,36 +334,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 0
---- !u!114 &693637419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693637416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_CategoryHash: 4.6759995e-28
-  m_labelHash: 7.201491e-12
-  m_SpriteKey: 0
-  m_SpriteHash: 141488446
---- !u!114 &693637420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693637416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 38c9f8e7cb4eba94ba0df4283386493f, type: 3}
+  aimX: 0
+  aimY: 0
+  aimPiv: 0
+  castDirection: 0
+  sprites:
+  - {fileID: 7545511995833076305, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
+  - {fileID: 6464943472280671266, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
+  - {fileID: 879650514281107113, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
+  - {fileID: 1550845161834704840, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
+  - {fileID: -1792316462094147119, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
+  - {fileID: 7973432452564839741, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
+  - {fileID: 3977593333492036616, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
+  - {fileID: 6445879074701419977, guid: 371e4c979c96fb043950eb6c1b11317d, type: 3}
 --- !u!212 &693637421
 SpriteRenderer:
   m_ObjectHideFlags: 0
