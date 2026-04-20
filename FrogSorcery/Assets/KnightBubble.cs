@@ -3,20 +3,75 @@ using UnityEngine.Tilemaps;
 
 public class KnightBubble : MonoBehaviour
 {
-    public Vector3 direction; 
+    public int aimDirection; 
+    private Vector3 bubbleDirection;
+    private Vector3 throwDirection;
+    //private Transform transform;
     private bool myTurn;
     private int lastTurnMoved =-1;
     [SerializeField] int bangDamage;
     [SerializeField] int pitch;
+    [SerializeField] int speed;
     private bool meComplete = false;
+    private KnightBang bang;
     //private Tilemap[] tilemaps;
 
     void Start()
     {   
-        Debug.Log("Prefab Spawned "+ direction);
+        switch (aimDirection){
+
+            case 0:
+            bubbleDirection = new Vector3(0,1,0);
+            throwDirection = new Vector3(1,0,0);
+            transform.Rotate(0,0,270);
+            break;
+
+            case 1:
+            bubbleDirection = new Vector3(1,0,0);
+            throwDirection = new Vector3(0,1,0);
+            break;
+
+            case 2:
+            bubbleDirection = new Vector3(1,0,0);
+            throwDirection = new Vector3(0,-1,0);
+            transform.Rotate(0,0,180);
+            break;
+
+            case 3:
+            bubbleDirection = new Vector3(0,-1,0);
+            throwDirection = new Vector3(1,0,0);
+            transform.Rotate(0,0,270);
+            break;
+
+            case 4:
+            bubbleDirection = new Vector3(0,-1,0);
+            throwDirection = new Vector3(-1,0,0);
+            transform.Rotate(0,0,90);
+            break;
+
+            case 5:
+            bubbleDirection = new Vector3(-1,0,0);
+            throwDirection = new Vector3(0,-1,0);
+            transform.Rotate(0,0,180);
+            break;
+
+            case 6:
+            bubbleDirection = new Vector3(-1,0,0);
+            throwDirection = new Vector3(0,1,0);
+            break;
+
+            case 7:
+            bubbleDirection = new Vector3(0,1,0);
+            throwDirection = new Vector3(-1,0,0);
+            transform.Rotate(0,0,90);
+            break;
+        }
+        Debug.Log("Prefab Spawned "+ aimDirection + bubbleDirection + throwDirection);
         GameManager.Instance.bulletAmount++;
         GameManager.Instance.spellComplete = true;
+        bang = Resources.Load<KnightBang>("KnightBang");
         meComplete = true;
+
         //Made a weird way of each instance referencing the tilemaps, for collision, 
         //and because just porting over the player CanMove bool seemed simple and it needs them, 
         //before realizing that i could probably just use a collider and it would perform better
@@ -39,14 +94,19 @@ public class KnightBubble : MonoBehaviour
         if(myTurn){
             Debug.Log("Moving");
             if(pitch!=0){
-            transform.position += direction;
-            pitch--;
+            Debug.Log("i go");
+                for (int i = 0; i!=speed; i++)
+                {
+                Debug.Log("goin");
+                transform.position += bubbleDirection;
+                pitch--;
+                }
+            TurnOver();
             }
             else
             {
-                
+                Pop();
             }
-            TurnOver();
         }
     }
     
@@ -57,6 +117,8 @@ public class KnightBubble : MonoBehaviour
         GameManager.Instance.bulletInit++;
     }
 
+    //collision detection. Vestigial as this projectile does not deal damage
+/*
     void OnTriggerEnter2D(Collider2D other) {
         if(meComplete){
         Debug.Log("Collision. Collider tag is "+other.gameObject.tag);
@@ -73,14 +135,16 @@ public class KnightBubble : MonoBehaviour
         }
         }else{Debug.Log("Spell Collided before fully formed.");}
     }
+    */
 
+    void Pop(){
+        KnightBang kbangbullet = Instantiate(bang, transform.position, Quaternion.identity);
+        kbangbullet.direction = throwDirection;
+        kbangbullet.bLastTurnMoved = lastTurnMoved;
+        Destroy(gameObject);
+    }
     void OnDestroy()
     {
-        GameManager.Instance.bulletAmount--;
-        if(lastTurnMoved==GameManager.Instance.turnCount)
-        {
-            GameManager.Instance.bulletInit--;
-        }
         Debug.Log(GameManager.Instance.bulletAmount);
         Debug.Log(GameManager.Instance.bulletInit);
     }

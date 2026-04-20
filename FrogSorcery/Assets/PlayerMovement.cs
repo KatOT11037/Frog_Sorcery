@@ -115,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
     public void AimKnight(int direction)
     {
         isAiming = false;
+        rend.material.color = Color.white;
         StartCoroutine(SpellKnight(direction));
     }
 
@@ -137,16 +138,16 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Spell cast "+direction);
 
-        if (bangPrefab != null)
+        if (knightproj!= null)
         {
-
-//            KnightBubble knight = Instantiate(knightproj, transform.position, Quaternion.identity);
-//            knight.direction = new Vector3(direction.x, direction.y, direction.z);
+            KnightBubble knight = Instantiate(knightproj, transform.position, Quaternion.identity);
+            knight.aimDirection = direction;
             Debug.Log("Bang spawned");
+            TurnOver();
         }
         else
         {
-            Debug.LogWarning("No bang. where is bang");
+            Debug.LogWarning("No bubble. where is bubble");
         }
 //        if(GameManager.Instance.spellComplete){yield break;}
         yield break;

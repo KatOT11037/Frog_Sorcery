@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4664309490350413085
+--- !u!1001 &1356781499447831053
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -4984792508674821087, guid: 3a37ba56b0cd3314a847c38d2aa4de55, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2064185332903201063, guid: ee53b44056ddf8449ae70df60d5d8c41, type: 3}
+      objectReference: {fileID: -595884729271031176, guid: ee53b44056ddf8449ae70df60d5d8c41, type: 3}
     - target: {fileID: -4984792508674821087, guid: 3a37ba56b0cd3314a847c38d2aa4de55, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8076064117895606514, guid: 3a37ba56b0cd3314a847c38d2aa4de55, type: 3}
       propertyPath: m_Name
-      value: KnightBubble
+      value: KnightBang
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5919076029046614634, guid: 3a37ba56b0cd3314a847c38d2aa4de55, type: 3}
@@ -75,26 +75,26 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8076064117895606514, guid: 3a37ba56b0cd3314a847c38d2aa4de55, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8739283271578194802}
+      addedObject: {fileID: -2233874303883839282}
   m_SourcePrefab: {fileID: 100100000, guid: 3a37ba56b0cd3314a847c38d2aa4de55, type: 3}
---- !u!1 &3506339566256907759 stripped
+--- !u!1 &7117851332036975359 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8076064117895606514, guid: 3a37ba56b0cd3314a847c38d2aa4de55, type: 3}
-  m_PrefabInstance: {fileID: 4664309490350413085}
+  m_PrefabInstance: {fileID: 1356781499447831053}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8739283271578194802
+--- !u!114 &-2233874303883839282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3506339566256907759}
+  m_GameObject: {fileID: 7117851332036975359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37a4c47cae7600d45a90150513c72e55, type: 3}
+  m_Script: {fileID: 11500000, guid: c58c73f4cc6a82c4da24232aee4b9205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimDirection: 0
-  bangDamage: 0
-  pitch: 2
-  speed: 2
+  direction: {x: 0, y: 0, z: 0}
+  bangDamage: 1
+  pitch: 1
+  speed: 1
