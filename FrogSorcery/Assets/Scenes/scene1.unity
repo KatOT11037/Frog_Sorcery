@@ -251,6 +251,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 1c615492-bb18-45c5-be35-9c0e4fdae8a2
     m_ActionName: 'Main/Cast[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cdcb2ae6-d79c-444e-b613-5fee58148172
+    m_ActionName: 'Main/Click[/Mouse/press]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Main
@@ -305,7 +309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &693637417
 Transform:
   m_ObjectHideFlags: 0

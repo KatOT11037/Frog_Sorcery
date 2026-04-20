@@ -6,6 +6,9 @@ public class KnightAim : MonoBehaviour
     public bool isEnabled = false;
     private SpriteRenderer aimrenderer;
     private Vector3 mousePos;
+    private PlayerInput playerInput;
+    private PlayerMovement playerMovement;
+
     private InputAction click;
     public int aimX;
     public int aimY;
@@ -16,13 +19,22 @@ public class KnightAim : MonoBehaviour
     void Awake()
     {
         castDirection = -1;
-//        aimrenderer = GetComponent<SpriteRenderer>();
-//        click = playerInput.actions["Click"];
+
+        playerInput = GetComponentInParent<PlayerInput>();
+        playerMovement = GetComponentInParent<PlayerMovement>();
+        aimrenderer = GetComponent<SpriteRenderer>();
+        click = playerInput.actions["Click"];
     }
 
     private void OnEnable()
     {
+        if(click != null)
+        {
         click.started += Click;
+        Debug.Log("Clicking");
+        }else{
+        Debug.Log("Clickless");
+        }
     }
     private void OnDisable()
     {
@@ -58,7 +70,7 @@ public class KnightAim : MonoBehaviour
         }
 
         aimDirection = new Vector3Int(aimX, aimY, aimPiv);
-        Debug.Log(aimDirection.ToString());
+        //Debug.Log(aimDirection.ToString());
 
         switch (aimDirection.ToString()){
             case "(1, 1, -1)":
@@ -69,11 +81,11 @@ public class KnightAim : MonoBehaviour
             castDirection = 1;
             break;
 
-            case "(1, -1, -1)":
+            case "(1, -1, 1)":
             castDirection = 2;
             break;
 
-            case "(1, -1, 1)":
+            case "(1, -1, -1)":
             castDirection = 3;
             break;
 
@@ -85,11 +97,11 @@ public class KnightAim : MonoBehaviour
             castDirection = 5;
             break;
 
-            case "(-1, 1, -1)":
+            case "(-1, 1, 1)":
             castDirection = 6;
             break;
 
-            case "(-1, 1, 1)":
+            case "(-1, 1, -1)":
             castDirection = 7;
             break;
         }
@@ -99,7 +111,8 @@ public class KnightAim : MonoBehaviour
 
     private void Click(InputAction.CallbackContext ctx)        
     {
-//        AimKnight(castDirection);
+        Debug.Log("Cluck");
+        playerMovement.AimKnight(castDirection);
         gameObject.SetActive(false);
     }
 }

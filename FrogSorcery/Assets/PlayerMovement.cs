@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("spellComplete "+GameManager.Instance.spellComplete);
             return;}
             else{
-        if(!isCasting)
+        if(!isCasting && !isAiming)
         {
             isMoving = true;
             if (CanMove(direction))
@@ -112,8 +112,9 @@ public class PlayerMovement : MonoBehaviour
     }
     }
 
-    private void AimKnight(int direction)
+    public void AimKnight(int direction)
     {
+        isAiming = false;
         StartCoroutine(SpellKnight(direction));
     }
 
@@ -124,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log(GameManager.Instance.spellComplete);
             return;}
             else{
-        if (!isMoving)
+        if (!isMoving && !isAiming)
         {
             isCasting = true;
             rend.material.color = Color.blue;
