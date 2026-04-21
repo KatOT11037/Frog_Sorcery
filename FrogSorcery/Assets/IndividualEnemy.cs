@@ -4,12 +4,12 @@ using System.Collections;
 
 public class IndividualEnemy : MonoBehaviour
 {
-    [SerializeField] int pLeft;
+    /*[SerializeField] int pLeft;
     [SerializeField] int pRight; 
     [SerializeField] int pUp; 
     [SerializeField] int pDown;
     private int stepsRemaining;
-    [SerializeField] int currentNESW = 1;
+    [SerializeField] int currentNESW = 1; */
     [SerializeField] int moveType;
     public int enemyHealth;
     public bool awoken;
@@ -36,7 +36,7 @@ public class IndividualEnemy : MonoBehaviour
         player = playerHealth.transform;
         Debug.Log(player.position);}
         rend.color = Color.white;
-        GetSteps(false);
+        //GetSteps(false);
     }
 
     void Start()
@@ -54,11 +54,11 @@ public class IndividualEnemy : MonoBehaviour
         {
             switch (moveType){
                 case 0:
-                MovePatrol(currentNESW);
+                //MovePatrol(currentNESW);
                 break;
 
                 case 1:
-                MoveToPlayer();
+                DistanceToPlayer();
                 break;
 
                 case >1:
@@ -85,6 +85,10 @@ public class IndividualEnemy : MonoBehaviour
         rend.color =Color.white;
     }
 */
+
+//  Old movement code for patrol movement. 
+//  Currently Vestigial, as this enemy will move to player
+/*
     void MovePatrol(int direction)
     {
         if(stepsRemaining!=0){
@@ -139,8 +143,8 @@ public class IndividualEnemy : MonoBehaviour
             if(move){
             MovePatrol(currentNESW);}
     }
-
-    void MoveToPlayer()
+*/
+    void DistanceToPlayer()
     {
         Debug.Log(player.position.x);
         if((trans.position.x)>(player.position.x)){

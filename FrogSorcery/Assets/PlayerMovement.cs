@@ -5,9 +5,9 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Tilemap walkmap;
-    [SerializeField] private Tilemap covermap;
-    [SerializeField] private Tilemap collmap;
+    [SerializeField] public Tilemap walkmap;
+    [SerializeField] public Tilemap covermap;
+    [SerializeField] public Tilemap collmap;
     public PlayerInput playerInput;
     public KnightAim knightAim;
     private Renderer rend;
@@ -18,11 +18,13 @@ public class PlayerMovement : MonoBehaviour
     private InputAction ribbit;
     private InputAction move;
     private InputAction cast;
+    public Vector3[] knightVulnerable; 
     private BulletBang bangPrefab;
     private KnightBubble knightproj;
     public GameObject knightindicator;
     void Awake()
     {
+        knightVulnerable = new Vector3[8];
         knightindicator = gameObject.transform.GetChild(0).gameObject;
         knightAim = knightindicator.GetComponent<KnightAim>();
         Debug.Log(knightindicator.activeInHierarchy);
@@ -174,10 +176,23 @@ public class PlayerMovement : MonoBehaviour
 
     void TurnOver()
     {
+        UpdateVulnerable();
         isTurn = false;
         GameManager.Instance.TurnEnd();
     }
 
+    void UpdateVulnerable()
+    {
+        Debug.Log(knightVulnerable.Length);
+        knightVulnerable[0] = new Vector3(transform.position.x + 1, transform.position.y + 2, 0);
+        knightVulnerable[1] = new Vector3(transform.position.x + 2, transform.position.y + 1, 0);
+        knightVulnerable[2] = new Vector3(transform.position.x + 2, transform.position.y - 1, 0);
+        knightVulnerable[3] = new Vector3(transform.position.x + 1, transform.position.y - 2, 0);
+        knightVulnerable[4] = new Vector3(transform.position.x - 1, transform.position.y - 2, 0);
+        knightVulnerable[5] = new Vector3(transform.position.x - 2, transform.position.y - 1, 0);
+        knightVulnerable[6] = new Vector3(transform.position.x - 2, transform.position.y + 1, 0);
+        knightVulnerable[7] = new Vector3(transform.position.x - 1, transform.position.y + 2, 0);
+    }
     public void PlayerTurn()
     {
         isTurn = true;
