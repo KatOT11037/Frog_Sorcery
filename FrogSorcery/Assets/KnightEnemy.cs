@@ -38,8 +38,6 @@ public class KnightEnemy : MonoBehaviour, IEnemyDamageable
         player = playerHealth.transform;
         Debug.Log(player.position);}
         bubble = Resources.Load<EnemyBubble>("EnemyBubble");
-        Color blorange = new Color(1f, (171f/255f), (93f/255f));
-        rend.material.color = blorange;
     }
 
     void Start()
@@ -97,6 +95,8 @@ public class KnightEnemy : MonoBehaviour, IEnemyDamageable
                 if(estabChoice == playerMovement.knightVulnerable[j]){
                     currentChoice = estabChoice;
                     choiceDir = j;
+                    Debug.Log("Stuck with established choice "+j);
+                    Debug.Log(estabChoice); Debug.Log(playerMovement.knightVulnerable[j]);
                 }
             }
             if((currentChoice[2] == -99)&&(CanMove(playerMovement.knightVulnerable[i]))){
@@ -127,8 +127,8 @@ public class KnightEnemy : MonoBehaviour, IEnemyDamageable
 
         finalDist = new Vector3(currentChoice.x-trans.position.x, currentChoice.y-trans.position.y, 0);
         estabChoice = currentChoice;
-        //Debug.Log("Final Distance to Destination: "+finalDist);
-        //Debug.Log("Final Choice: "+currentChoice);
+        Debug.Log("Final Distance to Destination: "+finalDist);
+        Debug.Log("Final Choice: "+currentChoice);
         return finalDist;
     }
     
@@ -185,9 +185,11 @@ public class KnightEnemy : MonoBehaviour, IEnemyDamageable
     }
 
     void Attack(){
+        int bangDir = choiceDir + 4;
+        if(bangDir>=8) bangDir-=8;
         Debug.Log("Attack");
         EnemyBubble eBubble = Instantiate(bubble, trans.position, Quaternion.identity);
-        eBubble.aimDirection = choiceDir + 4;
+        eBubble.aimDirection = bangDir;
         torpor =+ 1;
     }
 

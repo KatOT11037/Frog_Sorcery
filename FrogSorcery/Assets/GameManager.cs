@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] public int enemySpawnAmount;
     public static GameManager Instance;
+    private KnightEnemy knightEnemy;
     private PlayerMovement playerMovement;
     public bool spellComplete = true;
     public bool magicTurn = false;
@@ -29,7 +32,52 @@ public class GameManager : MonoBehaviour
         }
 
     playerMovement = FindAnyObjectByType<PlayerMovement>();
+    knightEnemy = Resources.Load<KnightEnemy>("Knight Enemy");
 
+    }
+    void Start()
+    {
+        SpawnEnemies();
+    }
+    void SpawnEnemies()
+    {
+        int [] spawnsTaken = new int[enemySpawnAmount];
+
+        for(int i = 0; i<enemySpawnAmount; i++)
+        {
+            spawnsTaken[i] = -1;
+        }
+
+        for(int i = 0; i < enemySpawnAmount; i++)
+        {
+            int point = Random.Range(0, 9);
+            if(CheckTaken(point, spawnsTaken, i))
+            {
+            spawnsTaken[i] = point;
+            }
+            else
+            {
+                i--;
+            }
+        }
+
+        for(int i = 0; i<enemySpawnAmount; i++)
+        {
+            KnightEnemy knight = Instantiate(knightEnemy, spawnPoints[spawnsTaken[i]].position, Quaternion.identity);
+        }
+    }
+
+    private bool CheckTaken(int point, int[] spawnsTaken, int repetitions)
+    {
+        Debug.Log("Checking "+point+spawnsTaken+repetitions);
+        for(int j = 0; j<=repetitions; j++)
+        {
+            if(spawnsTaken[j] == point )
+            {
+                return false;
+            }
+        }
+        return true;
     }
     public void TurnEnd()
     {
@@ -41,20 +89,20 @@ public class GameManager : MonoBehaviour
         if(enemyTurn && enemyAmount == enemyInit)
         {
             enemyTurn = false;
-            EnemyProjectileTurn();
+            MagicTurn();
         }
 
         if(enemyProjTurn && enemyProjAmount == enemyProjInit)
         {
             enemyProjTurn = false;
-            MagicTurn();
+            turnCount++;
+            playerMovement.PlayerTurn();
         }
 
         if(magicTurn && bulletAmount == bulletInit && spellComplete)
         {
             magicTurn = false;
-            turnCount++;
-            playerMovement.PlayerTurn();
+            EnemyProjectileTurn();
         }
     }
 

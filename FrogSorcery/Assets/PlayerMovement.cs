@@ -187,7 +187,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(knightVulnerable.Length);
         for (int i = 0; i <= 7; i++)
         {
-            knightVulnerable[i] = -(VDistToPlayer[i]);
+            knightVulnerable[i] = transform.position-(VDistToPlayer[i]);
         }
 /*        knightVulnerable[0] = new Vector3(transform.position.x + 1, transform.position.y + 2, 0);
         knightVulnerable[1] = new Vector3(transform.position.x + 2, transform.position.y + 1, 0);

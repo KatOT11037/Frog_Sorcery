@@ -82,7 +82,7 @@ public class EnemyKnightBang : MonoBehaviour
             Debug.Log("THUD");
             Destroy(gameObject);
         }
-        if(other.gameObject.tag == "player")
+        if(other.gameObject.tag == "Player")
         {
             Debug.Log("Hit "+other.gameObject.name);
             other.GetComponent<IDamageable>().ApplyDamage(bangDamage);
