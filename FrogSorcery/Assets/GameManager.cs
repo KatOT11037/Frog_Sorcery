@@ -7,9 +7,12 @@ public class GameManager : MonoBehaviour
     public bool spellComplete = true;
     public bool magicTurn = false;
     public bool enemyTurn = false;
+    public bool enemyProjTurn = false;
     public int turnCount = 0;
     public int enemyAmount = 0;
     public int enemyInit = 0;
+    public int enemyProjAmount = 0;
+    public int enemyProjInit = 0;
     public int bulletAmount = 0;
     public int bulletInit = 0;
     void Awake()
@@ -38,6 +41,12 @@ public class GameManager : MonoBehaviour
         if(enemyTurn && enemyAmount == enemyInit)
         {
             enemyTurn = false;
+            EnemyProjectileTurn();
+        }
+
+        if(enemyProjTurn && enemyProjAmount == enemyProjInit)
+        {
+            enemyProjTurn = false;
             MagicTurn();
         }
 
@@ -54,6 +63,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("Enemy Turn");
         enemyInit = 0;
         enemyTurn = true;
+    }
+
+    public void EnemyProjectileTurn()
+    {
+        Debug.Log("Enemy Projectile Turn");
+        enemyProjInit = 0;
+        enemyProjTurn = true;
     }
 
     public void MagicTurn()

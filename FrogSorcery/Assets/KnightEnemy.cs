@@ -2,9 +2,10 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 
-public class KnightEnemy : MonoBehaviour
+public class KnightEnemy : MonoBehaviour, IEnemyDamageable
 {
     public int speed;
+    public int torpor;
     public int enemyHealth;
     public bool awoken;
     private int distanceX;
@@ -20,7 +21,9 @@ public class KnightEnemy : MonoBehaviour
     private float currentDestinationDist = -1;
     private Vector3 currentChoice = new Vector3(-99,-99,-99);
     private Vector3 estabChoice;
+    private int choiceDir;
     private Vector3 finalDist = Vector3.positiveInfinity;
+    private EnemyBubble bubble;
 
     void Awake(){
         DOTween.Init();
@@ -34,6 +37,7 @@ public class KnightEnemy : MonoBehaviour
         trans = GetComponent<Transform>();
         player = playerHealth.transform;
         Debug.Log(player.position);}
+        bubble = Resources.Load<EnemyBubble>("EnemyBubble");
         Color blorange = new Color(1f, (171f/255f), (93f/255f));
         rend.material.color = blorange;
     }
@@ -58,22 +62,15 @@ public class KnightEnemy : MonoBehaviour
         }
     }
 
-    public void Damage(int amount)
+    public bool ApplyDamage(int amount)
     {
         enemyHealth -= amount; 
 //        StartCoroutine(ColourRed(0.8f));
         rend.color =Color.red;
         rend.DOColor(Color.white, 0.5f);
         if(enemyHealth <= 0){StartCoroutine(EnemyDie());}
+        return true;
     }
-
-/*    private IEnumerator ColourRed(float duration)
-    {
-        rend.color =Color.red;
-        yield return new WaitForSeconds(duration);
-        rend.color =Color.white;
-    }
-*/
 
     bool CanMove(Vector3 destination)
     {
@@ -99,12 +96,13 @@ public class KnightEnemy : MonoBehaviour
             {
                 if(estabChoice == playerMovement.knightVulnerable[j]){
                     currentChoice = estabChoice;
+                    choiceDir = j;
                 }
             }
-            Debug.Log(currentChoice);
             if((currentChoice[2] == -99)&&(CanMove(playerMovement.knightVulnerable[i]))){
                 Debug.Log("Current Destination is default");
                 currentChoice = playerMovement.knightVulnerable[i];
+                choiceDir = i;
                 currentDestinationDist = Vector3.Distance(trans.position, currentChoice);
                 Debug.Log("Set current");
             }else if((currentDestinationDist >= Vector3.Distance(trans.position, playerMovement.knightVulnerable[i]))&&(CanMove(playerMovement.knightVulnerable[i]))){
@@ -113,12 +111,14 @@ public class KnightEnemy : MonoBehaviour
                     int random = Random.Range(0,2);
                     if(random == 1){
                         currentChoice = playerMovement.knightVulnerable[i];
+                        choiceDir = i;
                         Debug.Log("Equal, switched");
                     }else{
                         Debug.Log("Equal, unswitched");
                     }
                 }else{
                 currentChoice = playerMovement.knightVulnerable[i];
+                choiceDir = i;
                 currentDestinationDist = Vector3.Distance(trans.position, currentChoice);
                 Debug.Log("Switched current");
                 }
@@ -127,32 +127,23 @@ public class KnightEnemy : MonoBehaviour
 
         finalDist = new Vector3(currentChoice.x-trans.position.x, currentChoice.y-trans.position.y, 0);
         estabChoice = currentChoice;
-        Debug.Log("Final Distance to Destination: "+finalDist);
-        Debug.Log("Final Choice: "+currentChoice);
+        //Debug.Log("Final Distance to Destination: "+finalDist);
+        //Debug.Log("Final Choice: "+currentChoice);
         return finalDist;
     }
-        
-        /*
-        Debug.Log(player.position.x);
-        if((trans.position.x)>(player.position.x)){
-            Debug.Log("Enemy left of Player");
-            distanceX = trans.position.x-player.position.x;
-        }
-        if((trans.position.x)<(player.position.x)){
-            Debug.Log("Enemy right of Player");
-            distanceX = trans.position.x-player.position.x;
-        }
-        distanceX = trans.position.x-player.position.x;
-        Debug.Log(distanceX);
-        endTurn(); 
-    } */
     
     void Act(Vector3 distToDestination){
-        if(distToDestination!=Vector3.zero){
-            Debug.Log("Enemy Moving");
-            Move(distToDestination);
-        }else{
-            Attack();
+        if(torpor<=0){
+            if(distToDestination!=Vector3.zero){
+                Debug.Log("Enemy Moving");
+                Move(distToDestination);
+            }else{
+                Attack();
+            }
+        }
+        else
+        {
+            torpor =- 1;
         }
     }
 
@@ -195,6 +186,9 @@ public class KnightEnemy : MonoBehaviour
 
     void Attack(){
         Debug.Log("Attack");
+        EnemyBubble eBubble = Instantiate(bubble, trans.position, Quaternion.identity);
+        eBubble.aimDirection = choiceDir + 4;
+        torpor =+ 1;
     }
 
     void endTurn()

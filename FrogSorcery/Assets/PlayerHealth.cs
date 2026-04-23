@@ -16,8 +16,15 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         
     }
 
-    public bool ApplyDamage(float amount)
+    public bool ApplyDamage(int amount)
     {
+        currentHealth -= amount;
+        if (currentHealth <= 0) Die();
         return true;
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }

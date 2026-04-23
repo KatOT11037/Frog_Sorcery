@@ -183,7 +183,7 @@ SpriteRenderer:
   m_SortingLayerID: -722217611
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2419274715696069116, guid: a19d775313e016d4c84c4fba848e6b1c, type: 3}
+  m_Sprite: {fileID: 7995884013310484180, guid: 56a87c1351659f344bcec12103565d8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
     m_ActionId: cdcb2ae6-d79c-444e-b613-5fee58148172
     m_ActionName: 'Main/Click[/Mouse/press]'
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
+  m_DefaultControlScheme: New Control Scheme
   m_DefaultActionMap: Main
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -275,6 +275,15 @@ MonoBehaviour:
   walkmap: {fileID: 1252164966}
   covermap: {fileID: 744779340}
   collmap: {fileID: 1569863003}
+  VDistToPlayer:
+  - {x: -1, y: -2, z: 0}
+  - {x: -2, y: -1, z: 0}
+  - {x: -2, y: 1, z: 0}
+  - {x: -1, y: 2, z: 0}
+  - {x: 1, y: 2, z: 0}
+  - {x: 2, y: 1, z: 0}
+  - {x: 2, y: -1, z: 0}
+  - {x: 1, y: -2, z: 0}
   playerInput: {fileID: 0}
   knightAim: {fileID: 0}
   knightVulnerable: []
@@ -633,9 +642,12 @@ MonoBehaviour:
   spellComplete: 1
   magicTurn: 0
   enemyTurn: 0
+  enemyProjTurn: 0
   turnCount: 0
   enemyAmount: 0
   enemyInit: 0
+  enemyProjAmount: 0
+  enemyProjInit: 0
   bulletAmount: 0
   bulletInit: 0
 --- !u!1 &1252164963
@@ -3792,6 +3804,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1721094946967218640, guid: b92834d015664e84480bf33e1b17776b, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2009930577141004740, guid: b92834d015664e84480bf33e1b17776b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -3835,6 +3851,18 @@ PrefabInstance:
     - target: {fileID: 5885611138008133247, guid: b92834d015664e84480bf33e1b17776b, type: 3}
       propertyPath: m_Name
       value: Enemy Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198335959276650572, guid: b92834d015664e84480bf33e1b17776b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6836770539970459143, guid: 56d37dc21b4aa9c40aa9b15b51577889, type: 3}
+    - target: {fileID: 6198335959276650572, guid: b92834d015664e84480bf33e1b17776b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198335959276650572, guid: b92834d015664e84480bf33e1b17776b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3964,7 +3992,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.625
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public Tilemap walkmap;
     [SerializeField] public Tilemap covermap;
     [SerializeField] public Tilemap collmap;
+    [SerializeField] public Vector3[] VDistToPlayer;
     public PlayerInput playerInput;
     public KnightAim knightAim;
     private Renderer rend;
@@ -184,18 +185,28 @@ public class PlayerMovement : MonoBehaviour
     void UpdateVulnerable()
     {
         Debug.Log(knightVulnerable.Length);
-        knightVulnerable[0] = new Vector3(transform.position.x + 1, transform.position.y + 2, 0);
+        for (int i = 0; i <= 7; i++)
+        {
+            knightVulnerable[i] = -(VDistToPlayer[i]);
+        }
+/*        knightVulnerable[0] = new Vector3(transform.position.x + 1, transform.position.y + 2, 0);
         knightVulnerable[1] = new Vector3(transform.position.x + 2, transform.position.y + 1, 0);
         knightVulnerable[2] = new Vector3(transform.position.x + 2, transform.position.y - 1, 0);
         knightVulnerable[3] = new Vector3(transform.position.x + 1, transform.position.y - 2, 0);
         knightVulnerable[4] = new Vector3(transform.position.x - 1, transform.position.y - 2, 0);
         knightVulnerable[5] = new Vector3(transform.position.x - 2, transform.position.y - 1, 0);
         knightVulnerable[6] = new Vector3(transform.position.x - 2, transform.position.y + 1, 0);
-        knightVulnerable[7] = new Vector3(transform.position.x - 1, transform.position.y + 2, 0);
+        knightVulnerable[7] = new Vector3(transform.position.x - 1, transform.position.y + 2, 0); */
     }
     public void PlayerTurn()
     {
         isTurn = true;
         Debug.Log("Player Turn "+isTurn+gameObject);
+    }
+
+    public void OnDestroy()
+    {
+        isTurn = false;
+        Debug.Log("Dead :(");
     }
 }

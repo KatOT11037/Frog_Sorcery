@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class KnightBang : MonoBehaviour
+public class EnemyKnightBang : MonoBehaviour
 {
     public Vector3 direction;
     //private Transform transform;
@@ -42,23 +41,11 @@ public class KnightBang : MonoBehaviour
             break;
         }
         meComplete = true;
-
-        //Made a weird way of each instance referencing the tilemaps, for collision, 
-        //and because just porting over the player CanMove bool seemed simple and it needs them, 
-        //before realizing that i could probably just use a collider and it would perform better
-
-        //tilemaps = FindObjectsByType<Tilemap>(FindObjectsSortMode.InstanceID);
-        //covermap = tilemaps[0];
-        //walkmap = tilemaps[1];
-        //collmap = tilemaps[2];
-        //Debug.Log("covermap is "+tilemaps[0]);
-        //Debug.Log("walkmap is "+tilemaps[1]);
-        //Debug.Log("collmap is "+tilemaps[2]);
     }
 
     void Update()
     {
-        if(GameManager.Instance.magicTurn && bLastTurnMoved!=GameManager.Instance.turnCount){
+        if(GameManager.Instance.enemyProjTurn && bLastTurnMoved!=GameManager.Instance.turnCount){
             myTurn = true;
         }
 
@@ -85,7 +72,7 @@ public class KnightBang : MonoBehaviour
     {
         bLastTurnMoved = GameManager.Instance.turnCount;
         myTurn = false;
-        GameManager.Instance.bulletInit++;
+        GameManager.Instance.enemyProjInit++;
     }
     void OnTriggerEnter2D(Collider2D other) {
         if(meComplete){
@@ -95,23 +82,22 @@ public class KnightBang : MonoBehaviour
             Debug.Log("THUD");
             Destroy(gameObject);
         }
-        if(other.gameObject.tag == "enemy")
+        if(other.gameObject.tag == "player")
         {
             Debug.Log("Hit "+other.gameObject.name);
-            other.GetComponent<IEnemyDamageable>().ApplyDamage(bangDamage);
+            other.GetComponent<IDamageable>().ApplyDamage(bangDamage);
             Destroy(gameObject);
         }
         }else{Debug.Log("Spell Collided before fully formed.");}
     }
     void OnDestroy()
     {
-        GameManager.Instance.bulletAmount--;
+        GameManager.Instance.enemyProjAmount--;
         if(bLastTurnMoved==GameManager.Instance.turnCount)
         {
-            GameManager.Instance.bulletInit--;
+            GameManager.Instance.enemyProjInit--;
         }
-        Debug.Log(GameManager.Instance.bulletAmount);
-        Debug.Log(GameManager.Instance.bulletInit);
+        Debug.Log("Enemy projectile amount is "+GameManager.Instance.enemyProjAmount);
+        Debug.Log("Enemy projectile initiative is "+GameManager.Instance.enemyProjInit);
     }
 }
-

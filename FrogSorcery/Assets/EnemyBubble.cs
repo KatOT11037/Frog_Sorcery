@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class KnightBubble : MonoBehaviour
+public class EnemyBubble : MonoBehaviour
 {
     public int aimDirection; 
     private Vector3 bubbleDirection;
@@ -12,7 +12,7 @@ public class KnightBubble : MonoBehaviour
     [SerializeField] int bangDamage;
     [SerializeField] int pitch;
     [SerializeField] int speed;
-    private KnightBang bang;
+    private EnemyKnightBang bang;
     //private Tilemap[] tilemaps;
 
     void Start()
@@ -66,26 +66,14 @@ public class KnightBubble : MonoBehaviour
             break;
         }
         Debug.Log("Prefab Spawned "+ aimDirection + bubbleDirection + throwDirection);
-        GameManager.Instance.bulletAmount++;
+        GameManager.Instance.enemyProjAmount++;
         GameManager.Instance.spellComplete = true;
-        bang = Resources.Load<KnightBang>("KnightBang");
-
-        //Made a weird way of each instance referencing the tilemaps, for collision, 
-        //and because just porting over the player CanMove bool seemed simple and it needs them, 
-        //before realizing that i could probably just use a collider and it would perform better
-
-        //tilemaps = FindObjectsByType<Tilemap>(FindObjectsSortMode.InstanceID);
-        //covermap = tilemaps[0];
-        //walkmap = tilemaps[1];
-        //collmap = tilemaps[2];
-        //Debug.Log("covermap is "+tilemaps[0]);
-        //Debug.Log("walkmap is "+tilemaps[1]);
-        //Debug.Log("collmap is "+tilemaps[2]);
+        bang = Resources.Load<EnemyKnightBang>("EnemyKBang");
     }
 
     void Update()
     {
-        if(GameManager.Instance.magicTurn && lastTurnMoved!=GameManager.Instance.turnCount){
+        if(GameManager.Instance.enemyProjTurn && lastTurnMoved!=GameManager.Instance.turnCount){
             myTurn = true;
         }
 
@@ -112,7 +100,7 @@ public class KnightBubble : MonoBehaviour
     {
         lastTurnMoved = GameManager.Instance.turnCount;
         myTurn = false;
-        GameManager.Instance.bulletInit++;
+        GameManager.Instance.enemyProjInit++;
     }
 
     //collision detection. Vestigial as this projectile does not deal damage
@@ -136,16 +124,17 @@ public class KnightBubble : MonoBehaviour
     */
 
     void Pop(){
-        KnightBang kbangbullet = Instantiate(bang, transform.position, Quaternion.identity);
+        EnemyKnightBang kbangbullet = Instantiate(bang, transform.position, Quaternion.identity);
         kbangbullet.direction = throwDirection;
         kbangbullet.bLastTurnMoved = lastTurnMoved;
         Destroy(gameObject);
     }
     void OnDestroy()
     {
-        Debug.Log(GameManager.Instance.bulletAmount);
-        Debug.Log(GameManager.Instance.bulletInit);
+        Debug.Log("Enemy projectile amount is "+GameManager.Instance.enemyProjAmount);
+        Debug.Log("Enemy projectile initiative is "+GameManager.Instance.enemyProjInit);
     }
 
 
 }
+

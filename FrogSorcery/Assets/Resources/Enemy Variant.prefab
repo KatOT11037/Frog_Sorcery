@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2166824430623600471, guid: 18bfdd7d32c33df45b444c435c04c754, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2166824430623600471, guid: 18bfdd7d32c33df45b444c435c04c754, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2166824430623600471, guid: 18bfdd7d32c33df45b444c435c04c754, type: 3}
       propertyPath: m_LocalPosition.z
@@ -49,12 +49,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6048976233414088415, guid: 18bfdd7d32c33df45b444c435c04c754, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6836770539970459143, guid: 56d37dc21b4aa9c40aa9b15b51577889, type: 3}
+    - target: {fileID: 6048976233414088415, guid: 18bfdd7d32c33df45b444c435c04c754, type: 3}
       propertyPath: m_Color.b
-      value: 0.36320752
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6048976233414088415, guid: 18bfdd7d32c33df45b444c435c04c754, type: 3}
       propertyPath: m_Color.g
-      value: 0.6694146
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6048976233414088415, guid: 18bfdd7d32c33df45b444c435c04c754, type: 3}
       propertyPath: m_Color.r
@@ -90,7 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d9cde83a1bc3d4f87424f33db6a55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
   enemyHealth: 2
   awoken: 0
-  distanceX: 0
-  distanceY: 0

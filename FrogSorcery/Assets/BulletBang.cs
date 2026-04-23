@@ -68,7 +68,7 @@ public class BulletBang : MonoBehaviour
         if(other.gameObject.tag == "enemy")
         {
             Debug.Log("Hit "+other.gameObject.name);
-            other.GetComponent<IndividualEnemy>().Damage(bangDamage);
+            other.GetComponent<IEnemyDamageable>().ApplyDamage(bangDamage);
             Destroy(gameObject);
         }
         }else{Debug.Log("Spell Collided before fully formed.");}

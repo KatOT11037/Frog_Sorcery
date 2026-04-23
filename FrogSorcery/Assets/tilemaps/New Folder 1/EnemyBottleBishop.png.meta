@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: a0f0841276e47f74998d5ddf860d4ed8
+guid: 56d37dc21b4aa9c40aa9b15b51577889
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4143484936318565145
-    second: Ribbitas_Right_Idle-Sheet_0
+      213: -6836770539970459143
+    second: EnemyBottleBishop_0
   - first:
-      213: -2795896882228504001
-    second: Ribbitas_Right_Idle-Sheet_1
+      213: -9069559897990118960
+    second: EnemyBottleBishop_1
   - first:
-      213: -5462675075223340089
-    second: Ribbitas_Right_Idle-Sheet_2
+      213: 754879286160134451
+    second: EnemyBottleBishop_2
+  - first:
+      213: -8348483814211427608
+    second: EnemyBottleBishop_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ribbitas_Right_Idle-Sheet_0
+      name: EnemyBottleBishop_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 1
-        width: 20
-        height: 29
+        x: 10
+        y: 0
+        width: 12
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91b3371b89d908930800000000000000
-      internalID: 4143484936318565145
+      spriteID: 9f9843aaa69ee11a0800000000000000
+      internalID: -6836770539970459143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ribbitas_Right_Idle-Sheet_1
+      name: EnemyBottleBishop_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1
-        width: 20
-        height: 29
+        x: 41
+        y: 0
+        width: 12
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3ad522599af239d0800000000000000
-      internalID: -2795896882228504001
+      spriteID: 0d1cb2b4353722280800000000000000
+      internalID: -9069559897990118960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ribbitas_Right_Idle-Sheet_2
+      name: EnemyBottleBishop_2
       rect:
         serializedVersion: 2
-        x: 68
-        y: 1
-        width: 20
-        height: 28
+        x: 75
+        y: 0
+        width: 12
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +181,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7cbbee926fda034b0800000000000000
-      internalID: -5462675075223340089
+      spriteID: 33110e316bed97a00800000000000000
+      internalID: 754879286160134451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyBottleBishop_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 0
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e264d0043a342c80800000000000000
+      internalID: -8348483814211427608
       vertices: []
       indices: 
       edges: []
@@ -198,9 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ribbitas_Right_Idle-Sheet_0: 4143484936318565145
-      Ribbitas_Right_Idle-Sheet_1: -2795896882228504001
-      Ribbitas_Right_Idle-Sheet_2: -5462675075223340089
+      EnemyBottleBishop_0: -6836770539970459143
+      EnemyBottleBishop_1: -9069559897990118960
+      EnemyBottleBishop_2: 754879286160134451
+      EnemyBottleBishop_3: -8348483814211427608
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

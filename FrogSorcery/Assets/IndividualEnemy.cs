@@ -2,7 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 
-public class IndividualEnemy : MonoBehaviour
+public class IndividualEnemy : MonoBehaviour, IEnemyDamageable
 {
     /*[SerializeField] int pLeft;
     [SerializeField] int pRight; 
@@ -69,13 +69,14 @@ public class IndividualEnemy : MonoBehaviour
         }
     }
 
-    public void Damage(int amount)
+    public bool ApplyDamage(int amount)
     {
         enemyHealth -= amount; 
 //        StartCoroutine(ColourRed(0.8f));
         rend.color =Color.red;
         rend.DOColor(Color.white, 0.5f);
         if(enemyHealth <= 0){StartCoroutine(Die());}
+        return true;
     }
 
 /*    private IEnumerator ColourRed(float duration)
