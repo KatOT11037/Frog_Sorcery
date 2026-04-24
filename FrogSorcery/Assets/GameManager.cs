@@ -1,7 +1,9 @@
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] TMP_Text enemycount; 
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] public int enemySpawnAmount;
     public static GameManager Instance;
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     public int enemyProjInit = 0;
     public int bulletAmount = 0;
     public int bulletInit = 0;
+    public int enemiesDestroyed;
     void Awake()
     {
         if(Instance == null)
@@ -37,6 +40,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+
+        enemycount.text = "Pollutants Destroyed: "+enemiesDestroyed;
         SpawnEnemies();
     }
     void SpawnEnemies()
@@ -50,7 +55,7 @@ public class GameManager : MonoBehaviour
 
         for(int i = 0; i < enemySpawnAmount; i++)
         {
-            int point = Random.Range(0, 9);
+            int point = Random.Range(0, 8);
             if(CheckTaken(point, spawnsTaken, i))
             {
             spawnsTaken[i] = point;
@@ -61,8 +66,13 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        Debug.Log(spawnPoints);
+        Debug.Log(spawnsTaken);
+
         for(int i = 0; i<enemySpawnAmount; i++)
         {
+            Debug.Log(spawnsTaken[i]);
+            Debug.Log(spawnPoints[spawnsTaken[i]]);
             KnightEnemy knight = Instantiate(knightEnemy, spawnPoints[spawnsTaken[i]].position, Quaternion.identity);
         }
     }
@@ -82,6 +92,12 @@ public class GameManager : MonoBehaviour
     public void TurnEnd()
     {
         EnemyTurn();
+    }
+
+    public void EnemyDead(){
+        GameManager.Instance.enemyAmount--;
+        GameManager.Instance.enemiesDestroyed++;
+        enemycount.text = "Pollutants Destroyed: "+enemiesDestroyed;
     }
 
     void Update() 
@@ -108,9 +124,20 @@ public class GameManager : MonoBehaviour
 
     public void EnemyTurn()
     {
+        if(enemyAmount>0){
         Debug.Log("Enemy Turn");
         enemyInit = 0;
         enemyTurn = true;
+        }else{
+            if(enemySpawnAmount<8){
+                int add = Random.Range(0,2);
+                enemySpawnAmount += add;
+            }
+            SpawnEnemies();
+            enemyInit = 0;
+            enemyTurn = true;
+        }
+
     }
 
     public void EnemyProjectileTurn()

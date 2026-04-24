@@ -202,8 +202,8 @@ public class KnightEnemy : MonoBehaviour, IEnemyDamageable
     private IEnumerator EnemyDie()
     {
         if(!dead){
+        GameManager.Instance.EnemyDead();
         dead = true;
-        GameManager.Instance.enemyAmount--;
         if (lastTurnMoved == GameManager.Instance.turnCount){GameManager.Instance.enemyInit--;}
         rend.color = Color.red;
         rend.DOFade(0f, 2f);

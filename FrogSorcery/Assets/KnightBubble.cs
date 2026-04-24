@@ -4,6 +4,8 @@ using UnityEngine.Tilemaps;
 public class KnightBubble : MonoBehaviour
 {
     public int aimDirection; 
+    private bool isPopped = false;
+    private Animator animator;
     private Vector3 bubbleDirection;
     private Vector3 throwDirection;
     //private Transform transform;
@@ -68,6 +70,7 @@ public class KnightBubble : MonoBehaviour
         Debug.Log("Prefab Spawned "+ aimDirection + bubbleDirection + throwDirection);
         GameManager.Instance.bulletAmount++;
         GameManager.Instance.spellComplete = true;
+        animator = GetComponent<Animator>();
         bang = Resources.Load<KnightBang>("KnightBang");
 
         //Made a weird way of each instance referencing the tilemaps, for collision, 
@@ -85,7 +88,7 @@ public class KnightBubble : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.Instance.magicTurn && lastTurnMoved!=GameManager.Instance.turnCount){
+        if(GameManager.Instance.magicTurn && lastTurnMoved!=GameManager.Instance.turnCount && !isPopped){
             myTurn = true;
         }
 
@@ -139,7 +142,10 @@ public class KnightBubble : MonoBehaviour
         KnightBang kbangbullet = Instantiate(bang, transform.position, Quaternion.identity);
         kbangbullet.direction = throwDirection;
         kbangbullet.bLastTurnMoved = lastTurnMoved;
-        Destroy(gameObject);
+        animator.SetTrigger("Pop");
+        isPopped = true;
+        myTurn = false;
+        Destroy(gameObject, 0.6f);
     }
     void OnDestroy()
     {

@@ -146,20 +146,20 @@ TextureImporter:
       name: Ribbitas_Back_Idle-Sheet_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 2
-        width: 29
-        height: 25
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6e1c3e43729497c50800000000000000
-      internalID: 6663437556411253222
+      spriteID: 09dc8dc5866b49446b4cc50caaf1976d
+      internalID: 656334140
       vertices: []
       indices: 
       edges: []
@@ -168,20 +168,20 @@ TextureImporter:
       name: Ribbitas_Back_Idle-Sheet_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 2
-        width: 29
-        height: 25
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cbcf0c1e360306e80800000000000000
-      internalID: -8187490917012144964
+      spriteID: dec0d9f29193d0b47a4ce6a4db74fb58
+      internalID: -275607626
       vertices: []
       indices: 
       edges: []
@@ -190,20 +190,20 @@ TextureImporter:
       name: Ribbitas_Back_Idle-Sheet_2
       rect:
         serializedVersion: 2
-        x: 65
-        y: 2
-        width: 29
-        height: 25
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cc4c1948cb1af3790800000000000000
-      internalID: -7548136619399592756
+      spriteID: 8f7a408903e8d034fa939142ea58fe53
+      internalID: -1567679019
       vertices: []
       indices: 
       edges: []
@@ -212,20 +212,20 @@ TextureImporter:
       name: Ribbitas_Back_Idle-Sheet_3
       rect:
         serializedVersion: 2
-        x: 97
-        y: 2
-        width: 29
-        height: 25
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4b6efa5b001fb2c00800000000000000
-      internalID: 877059537804191412
+      spriteID: cf78b54f272069b48905316ae401e8ca
+      internalID: 1703618920
       vertices: []
       indices: 
       edges: []
@@ -234,20 +234,20 @@ TextureImporter:
       name: Ribbitas_Back_Idle-Sheet_4
       rect:
         serializedVersion: 2
-        x: 129
-        y: 2
-        width: 29
-        height: 25
+        x: 128
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6a8ce8b1d60aebed0800000000000000
-      internalID: -2396301561240303450
+      spriteID: d0cc28fbc9b027342a5e911626dc164d
+      internalID: -676435435
       vertices: []
       indices: 
       edges: []
@@ -256,20 +256,20 @@ TextureImporter:
       name: Ribbitas_Back_Idle-Sheet_5
       rect:
         serializedVersion: 2
-        x: 161
-        y: 2
-        width: 29
-        height: 25
+        x: 160
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c38172102a5fbbdf0800000000000000
-      internalID: -163266885316044740
+      spriteID: a47ac90d3b82a0343bf24aa76f6ba7a7
+      internalID: -91891264
       vertices: []
       indices: 
       edges: []
@@ -278,20 +278,20 @@ TextureImporter:
       name: Ribbitas_Back_Idle-Sheet_6
       rect:
         serializedVersion: 2
-        x: 193
-        y: 2
-        width: 29
-        height: 25
+        x: 192
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dfb444ee7108f2020800000000000000
-      internalID: 2319213173389151229
+      spriteID: 0a7ce484d77b6a44fb70b20cb0033cd9
+      internalID: -65050939
       vertices: []
       indices: 
       edges: []
@@ -300,20 +300,20 @@ TextureImporter:
       name: Ribbitas_Back_Idle-Sheet_7
       rect:
         serializedVersion: 2
-        x: 225
-        y: 2
-        width: 29
-        height: 25
+        x: 224
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 99f289026ed6f4780800000000000000
-      internalID: -8696611520272388199
+      spriteID: d3d898bd6c98f5642b402dce63c8db6b
+      internalID: -2087335461
       vertices: []
       indices: 
       edges: []
@@ -322,20 +322,20 @@ TextureImporter:
       name: Ribbitas_Back_Idle-Sheet_8
       rect:
         serializedVersion: 2
-        x: 257
-        y: 2
-        width: 29
-        height: 25
+        x: 256
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cf635e8300e1052a0800000000000000
-      internalID: -6750862855124994308
+      spriteID: 4b76e1e95374bf44daa00050abef3965
+      internalID: -2084085878
       vertices: []
       indices: 
       edges: []
@@ -344,20 +344,20 @@ TextureImporter:
       name: Ribbitas_Back_Idle-Sheet_9
       rect:
         serializedVersion: 2
-        x: 289
-        y: 2
-        width: 29
-        height: 25
+        x: 288
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a6645fc4ffb067530800000000000000
-      internalID: 3852279722397746794
+      spriteID: 6b605ac98e2a35940be651f523f0bd0d
+      internalID: 2103492260
       vertices: []
       indices: 
       edges: []
@@ -366,20 +366,20 @@ TextureImporter:
       name: Ribbitas_Back_Idle-Sheet_10
       rect:
         serializedVersion: 2
-        x: 321
-        y: 2
-        width: 29
-        height: 24
+        x: 320
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e187ca49f27d15dd0800000000000000
-      internalID: -2498979718856148962
+      spriteID: faee0e84fa6147442b104378513c4ae7
+      internalID: -1708763133
       vertices: []
       indices: 
       edges: []
@@ -388,7 +388,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7e46bdd996cce444c8960c6820b73b6b
     internalID: 0
     vertices: []
     indices: 
@@ -398,17 +398,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ribbitas_Back_Idle-Sheet_0: 6663437556411253222
-      Ribbitas_Back_Idle-Sheet_1: -8187490917012144964
-      Ribbitas_Back_Idle-Sheet_10: -2498979718856148962
-      Ribbitas_Back_Idle-Sheet_2: -7548136619399592756
-      Ribbitas_Back_Idle-Sheet_3: 877059537804191412
-      Ribbitas_Back_Idle-Sheet_4: -2396301561240303450
-      Ribbitas_Back_Idle-Sheet_5: -163266885316044740
-      Ribbitas_Back_Idle-Sheet_6: 2319213173389151229
-      Ribbitas_Back_Idle-Sheet_7: -8696611520272388199
-      Ribbitas_Back_Idle-Sheet_8: -6750862855124994308
-      Ribbitas_Back_Idle-Sheet_9: 3852279722397746794
+      Ribbitas_Back_Idle-Sheet_0: 656334140
+      Ribbitas_Back_Idle-Sheet_1: -275607626
+      Ribbitas_Back_Idle-Sheet_10: -1708763133
+      Ribbitas_Back_Idle-Sheet_2: -1567679019
+      Ribbitas_Back_Idle-Sheet_3: 1703618920
+      Ribbitas_Back_Idle-Sheet_4: -676435435
+      Ribbitas_Back_Idle-Sheet_5: -91891264
+      Ribbitas_Back_Idle-Sheet_6: -65050939
+      Ribbitas_Back_Idle-Sheet_7: -2087335461
+      Ribbitas_Back_Idle-Sheet_8: -2084085878
+      Ribbitas_Back_Idle-Sheet_9: 2103492260
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

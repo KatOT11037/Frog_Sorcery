@@ -9,9 +9,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public Tilemap covermap;
     [SerializeField] public Tilemap collmap;
     [SerializeField] public Vector3[] VDistToPlayer;
+    private Animator animator;
     public PlayerInput playerInput;
     public KnightAim knightAim;
     private Renderer rend;
+    private int animState;
     private bool isMoving = false;
     private bool isCasting = false;
     private bool isAiming = false;
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         knightAim = knightindicator.GetComponent<KnightAim>();
         Debug.Log(knightindicator.activeInHierarchy);
         playerInput = GetComponent<PlayerInput>();
+        animator = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
         ribbit = playerInput.actions["Ribbit"];
         move = playerInput.actions["Move"];
@@ -40,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
+        animState = 0;
         PlayerTurn();
         ribbit.started += Ribbit;
         move.performed += ctx => MovePlayer(ctx.ReadValue<Vector2>());
@@ -81,12 +85,32 @@ public class PlayerMovement : MonoBehaviour
             if (CanMove(direction))
             {
                 Debug.Log("Moving");
+                Debug.Log(direction.ToString());
                 transform.position += (Vector3)direction;
+                switch (direction.ToString())
+                {
+                    case "(0.00, -1.00, 0.00)":
+                animator.SetInteger("animState", 0);
+                break;
+
+                case "(0.00, 1.00, 0.00)":
+                animator.SetInteger("animState", 3);
+                break;
+
+                case "(1.00, 0.00, 0.00)":
+                animator.SetInteger("animState", 2);
+                break;
+
+                case "(-1.00, 0.00, 0.00)":
+                animator.SetInteger("animState", 1);
+                break;
+                }
+
                 TurnOver();
             }
             isMoving = false;
         }
-        else
+/*        else
         {
             Debug.Log((Vector3)direction);
             switch (direction.x){
@@ -111,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
                     TurnOver();
                     break;
                 }
-        }
+        }*/
     }
     }
 
@@ -131,8 +155,13 @@ public class PlayerMovement : MonoBehaviour
             else{
         if (!isMoving && !isAiming)
         {
-            isCasting = true;
+            //isCasting = true;
+            //rend.material.color = Color.blue;
+            GameManager.Instance.spellComplete = false;
+            knightindicator.SetActive(true);
             rend.material.color = Color.blue;
+            isAiming = true;
+            isCasting = false;
         }
         }
     }

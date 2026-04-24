@@ -158,9 +158,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 1
-        width: 29
+        x: 2
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -180,9 +180,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_1
       rect:
         serializedVersion: 2
-        x: 39
-        y: 1
-        width: 29
+        x: 37
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -202,9 +202,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_2
       rect:
         serializedVersion: 2
-        x: 74
-        y: 1
-        width: 29
+        x: 72
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -224,9 +224,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_3
       rect:
         serializedVersion: 2
-        x: 109
-        y: 1
-        width: 29
+        x: 107
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -246,9 +246,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_4
       rect:
         serializedVersion: 2
-        x: 144
-        y: 1
-        width: 29
+        x: 142
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -268,9 +268,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_5
       rect:
         serializedVersion: 2
-        x: 179
-        y: 1
-        width: 29
+        x: 177
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -290,9 +290,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_6
       rect:
         serializedVersion: 2
-        x: 214
-        y: 1
-        width: 29
+        x: 212
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -312,9 +312,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_7
       rect:
         serializedVersion: 2
-        x: 249
-        y: 1
-        width: 29
+        x: 247
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -334,9 +334,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_8
       rect:
         serializedVersion: 2
-        x: 284
-        y: 1
-        width: 29
+        x: 282
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -356,9 +356,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_9
       rect:
         serializedVersion: 2
-        x: 319
-        y: 1
-        width: 29
+        x: 317
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -378,9 +378,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_10
       rect:
         serializedVersion: 2
-        x: 354
-        y: 1
-        width: 29
+        x: 352
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -400,9 +400,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_11
       rect:
         serializedVersion: 2
-        x: 389
-        y: 1
-        width: 29
+        x: 387
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -422,10 +422,10 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_12
       rect:
         serializedVersion: 2
-        x: 424
-        y: 1
-        width: 29
-        height: 31
+        x: 422
+        y: 2
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -444,9 +444,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_13
       rect:
         serializedVersion: 2
-        x: 459
-        y: 1
-        width: 29
+        x: 457
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -466,9 +466,9 @@ TextureImporter:
       name: Ribbitas_Idle-Sheet_14
       rect:
         serializedVersion: 2
-        x: 494
-        y: 1
-        width: 29
+        x: 492
+        y: 2
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -488,7 +488,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 876d96f5a4389b4489cf085388258d29
     internalID: 0
     vertices: []
     indices: 
