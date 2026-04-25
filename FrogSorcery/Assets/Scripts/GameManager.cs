@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] TMP_Text enemycount; 
+    [SerializeField] TMP_Text controls;
+    [SerializeField] TMP_Text health;
+//    [SerializeField] IPanel GameOver;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] public int enemySpawnAmount;
     public static GameManager Instance;
@@ -152,5 +156,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Magic Turn");
         bulletInit = 0;
         magicTurn = true;
+    }
+
+    public void PlayerDead(){
+        enemyTurn = false;
+        magicTurn = false;
+        enemyProjTurn = false;
     }
 }

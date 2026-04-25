@@ -235,6 +235,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnDestroy()
     {
+        GameManager.Instance.PlayerDead();
         isTurn = false;
         Debug.Log("Dead :(");
     }
