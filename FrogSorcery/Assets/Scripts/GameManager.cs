@@ -7,12 +7,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text enemycount; 
     [SerializeField] TMP_Text controls;
     [SerializeField] TMP_Text health;
-//    [SerializeField] IPanel GameOver;
+    [SerializeField] PostProcessingController globalVolume;
+    [SerializeField] Image gameOverScreen;
+    [SerializeField] Image winScreen;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] public int enemySpawnAmount;
+    [SerializeField] public int enemyGoal;
     public static GameManager Instance;
+    //private TMP_Text gameOverText;
+    private TMP_Text finalScore;
+    //private TMP_Text winText;
+    private TMP_Text finalScoreWin;
+    //private Button button;
     private KnightEnemy knightEnemy;
     private PlayerMovement playerMovement;
+    private bool continued;
     public bool spellComplete = true;
     public bool magicTurn = false;
     public bool enemyTurn = false;
@@ -38,13 +47,19 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+
     playerMovement = FindAnyObjectByType<PlayerMovement>();
     knightEnemy = Resources.Load<KnightEnemy>("Knight Enemy");
-
+    //gameOverText = gameOverScreen.transform.GetChild(0).gameObject.GetComponent<TMP_Text>(); 
+    finalScore = gameOverScreen.transform.GetChild(1).gameObject.GetComponent<TMP_Text>(); 
+    //winText = winScreen.transform.GetChild(0).gameObject.GetComponent<TMP_Text>(); 
+    finalScoreWin = winScreen.transform.GetChild(1).gameObject.GetComponent<TMP_Text>(); 
+    //button = winScreen.transform.GetChild(2).gameObject.GetComponent<Button>(); 
     }
     void Start()
     {
-
+        continued = false;
+        gameOverScreen.gameObject.SetActive(false);
         enemycount.text = "Pollutants Destroyed: "+enemiesDestroyed;
         SpawnEnemies();
     }
@@ -99,9 +114,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void EnemyDead(){
-        GameManager.Instance.enemyAmount--;
-        GameManager.Instance.enemiesDestroyed++;
+        enemyAmount--;
+        enemiesDestroyed++;
         enemycount.text = "Pollutants Destroyed: "+enemiesDestroyed;
+        globalVolume.ClearPollution();
+        if(enemiesDestroyed>=enemyGoal && !continued && enemyAmount==0) PlayerWin();
     }
 
     void Update() 
@@ -162,5 +179,34 @@ public class GameManager : MonoBehaviour
         enemyTurn = false;
         magicTurn = false;
         enemyProjTurn = false;
+        
+        controls.gameObject.SetActive(false);
+        health.gameObject.SetActive(false);
+        enemycount.gameObject.SetActive(false);
+        gameOverScreen.gameObject.SetActive(true);
+        finalScore.text = "You Destroyed "+enemiesDestroyed+" pollutant monsters";
+    }
+
+    public void PlayerWin()
+    {
+        enemyTurn = false;
+        magicTurn = false;
+        enemyProjTurn = false;
+        
+        controls.gameObject.SetActive(false);
+        health.gameObject.SetActive(false);
+        enemycount.gameObject.SetActive(false);
+        winScreen.gameObject.SetActive(true);
+        finalScoreWin.text = "You Destroyed "+enemiesDestroyed+" pollutant monsters";
+    }
+
+    public void Continue()
+    {
+        continued = true;
+        winScreen.gameObject.SetActive(false);
+        controls.gameObject.SetActive(true);
+        health.gameObject.SetActive(true);
+        enemycount.gameObject.SetActive(true);
+        enemyProjTurn = true;
     }
 }

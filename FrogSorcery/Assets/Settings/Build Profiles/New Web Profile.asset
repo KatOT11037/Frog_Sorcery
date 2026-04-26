@@ -63,9 +63,9 @@ MonoBehaviour:
     - line: '|     width: 1'
     - line: '|     height: 1'
     - line: '|   m_SplashScreenLogos:'
-    - line: '|   - logo: {fileID: 902773042312827701, guid: a19d775313e016d4c84c4fba848e6b1c,
+    - line: '|   - logo: {fileID: 7995884013310484180, guid: 56a87c1351659f344bcec12103565d8c,
         type: 3}'
-    - line: '|     duration: 4'
+    - line: '|     duration: 2.5'
     - line: '|   m_VirtualRealitySplashScreen: {instanceID: 0}'
     - line: '|   m_HolographicTrackingLossScreen: {instanceID: 0}'
     - line: '|   defaultScreenWidth: 1920'
@@ -166,7 +166,7 @@ MonoBehaviour:
     - line: '|   loadStoreDebugModeEnabled: 0'
     - line: '|   visionOSBundleVersion: 1.0'
     - line: '|   tvOSBundleVersion: 1.0'
-    - line: '|   bundleVersion: 1.1'
+    - line: '|   bundleVersion: Beta 1.1'
     - line: '|   preloadedAssets: []'
     - line: '|   metroInputSource: 0'
     - line: '|   wsaTransparentSwapchain: 0'

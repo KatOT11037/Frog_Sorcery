@@ -4,10 +4,10 @@ using System.Collections;
 
 public class KnightEnemy : MonoBehaviour, IEnemyDamageable
 {
+    [SerializeField] Sprite[] sprites;
     public int speed;
     public int torpor;
     public int enemyHealth;
-    public bool awoken;
     private int distanceX;
     private int distanceY;
     private SpriteRenderer rend;

@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     public PlayerInput playerInput;
     public KnightAim knightAim;
     private Renderer rend;
-    private int animState;
     private bool isMoving = false;
     private bool isCasting = false;
     private bool isAiming = false;
@@ -43,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        animState = 0;
         PlayerTurn();
         ribbit.started += Ribbit;
         move.performed += ctx => MovePlayer(ctx.ReadValue<Vector2>());
