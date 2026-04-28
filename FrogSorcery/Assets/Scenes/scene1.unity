@@ -1578,7 +1578,7 @@ MonoBehaviour:
   - {fileID: 1171794275}
   - {fileID: 1461930908}
   enemySpawnAmount: 2
-  enemyGoal: 5
+  enemyGoal: 20
   spellComplete: 1
   magicTurn: 0
   enemyTurn: 0
@@ -4093,7 +4093,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 30
+  orthographic size: 5.625
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -4672,7 +4672,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 30
+  orthographic size: 5.625
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

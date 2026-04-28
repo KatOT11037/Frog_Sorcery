@@ -71,7 +71,7 @@ MonoBehaviour:
     - line: '|   defaultScreenWidth: 1920'
     - line: '|   defaultScreenHeight: 1080'
     - line: '|   defaultScreenWidthWeb: 640'
-    - line: '|   defaultScreenHeightWeb: 320'
+    - line: '|   defaultScreenHeightWeb: 360'
     - line: '|   m_StereoRenderingPath: 0'
     - line: '|   m_ActiveColorSpace: 1'
     - line: '|   unsupportedMSAAFallback: 0'
